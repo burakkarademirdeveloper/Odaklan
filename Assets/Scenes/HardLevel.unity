@@ -669,8 +669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startXValue: -7
   _endXValue: -4
-  _closeTime: 1.5
-  _easeType: 2
+  _closeTime: 1
   _levelLoader: 1
 --- !u!212 &707222992
 SpriteRenderer:
@@ -1297,8 +1296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startXValue: 7
   _endXValue: 4
-  _closeTime: 1.5
-  _easeType: 2
+  _closeTime: 1
   _levelLoader: 0
 --- !u!212 &1866257863
 SpriteRenderer:

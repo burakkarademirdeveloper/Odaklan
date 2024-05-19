@@ -13,8 +13,6 @@ namespace LevelSelection
         public static event Action OnOpenDoorAction;
         public static event Action OnCloseDoorAction;
         public static Action OnLoadLevelAction;
-        
-        [SerializeField] private Ease _easeType;
 
         [SerializeField] private bool _levelLoader;
 
@@ -37,12 +35,12 @@ namespace LevelSelection
 
         private void OpenDoorAnimation()
         {
-            transform.DOMoveX(_startXValue, _closeTime).SetEase(_easeType);
+            transform.DOMoveX(_startXValue, _closeTime).SetEase(Ease.InSine);
         }
         
         private void CloseDoorAnimation()
         {
-            transform.DOMoveX(_endXValue, _closeTime).SetEase(_easeType)
+            transform.DOMoveX(_endXValue, _closeTime).SetEase(Ease.OutSine)
                 .OnComplete((() =>
                 {
                     if (_levelLoader)
