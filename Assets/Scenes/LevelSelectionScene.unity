@@ -1263,6 +1263,7 @@ GameObject:
   - component: {fileID: 1390411231}
   - component: {fileID: 1390411230}
   - component: {fileID: 1390411232}
+  - component: {fileID: 1390411233}
   m_Layer: 0
   m_Name: EasyLevelButton
   m_TagString: Untagged
@@ -1359,6 +1360,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6666665, y: 1.6666665, z: 0.19999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1390411233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390411229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8065c960d27bd43be4c1ab6d74b987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: EasyLevel
 --- !u!1 &1403200021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1384,7 @@ GameObject:
   - component: {fileID: 1403200023}
   - component: {fileID: 1403200022}
   - component: {fileID: 1403200024}
+  - component: {fileID: 1403200025}
   m_Layer: 0
   m_Name: HardLevelButton
   m_TagString: Untagged
@@ -1466,6 +1481,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.6666665, y: 1.6666665, z: 0.19999999}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1403200025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403200021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8065c960d27bd43be4c1ab6d74b987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sceneName: HardLevel
 --- !u!1 &1529409250
 GameObject:
   m_ObjectHideFlags: 0
