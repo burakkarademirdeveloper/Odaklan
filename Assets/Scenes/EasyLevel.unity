@@ -2195,6 +2195,7 @@ MonoBehaviour:
   _cube5: {fileID: 627212545}
   _cube6: {fileID: 926595715}
   _cube7: {fileID: 305534608}
+  _mainGameCube: {fileID: 1675361381}
 --- !u!1 &926595715
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,9 +23,14 @@ public class MainCubesController : MonoBehaviour
     private Vector3 _cube5InitialPos;
     private Vector3 _cube6InitialPos;
     private Vector3 _cube7InitialPos;
+    
+    private List<GameObject> _cubes = new List<GameObject>();
+    
+    [SerializeField] private GameObject _mainGameCube;
 
     private void Start()
     {
+        CubeAddToList();
         SetCubeInitialPos();
     }
     
@@ -43,12 +48,84 @@ public class MainCubesController : MonoBehaviour
 
     public void CubesIsDown(float time)
     {
-        var targetPos = new Vector3(0f,0f, transform.position.z);
+        var targetPos = _mainGameCube.transform.position;
 
         transform.DOMove(targetPos, time).SetEase(Ease.Linear)
             .OnComplete((() =>
             {
-                //küp indi.
+                StartCoroutine(AddRbToCubes());
             }));
+    }
+
+    
+    private IEnumerator AddRbToCubes()
+    {
+        int listCount = 0;
+        
+        foreach (GameObject obj in _cubes)
+        {
+            listCount++;
+            if (obj != null && listCount != 4)
+            {
+                obj.AddComponent<Rigidbody>();
+                obj.transform.parent = null;
+            }
+
+            if (listCount == 4)
+            {
+                obj.transform.parent = null;
+            }
+
+            if (listCount == _cubes.Count)
+            {
+                Invoke(nameof(ResetCubesPos), 2f);
+            }
+            
+            yield return new WaitForSeconds(0.25f);
+        }
+    }
+    
+    private void RemoveRbFromCubes()
+    {
+        Destroy(_cube1.GetComponent<Rigidbody>());
+        Destroy(_cube2.GetComponent<Rigidbody>());
+        Destroy(_cube3.GetComponent<Rigidbody>());
+        Destroy(_cube5.GetComponent<Rigidbody>());
+        Destroy(_cube6.GetComponent<Rigidbody>());
+        Destroy(_cube7.GetComponent<Rigidbody>());
+    }
+    
+    private void ResetCubesPos()
+    {
+        RemoveRbFromCubes();
+        _cube1.transform.position = _cube1InitialPos;
+        _cube2.transform.position = _cube2InitialPos;
+        _cube3.transform.position = _cube3InitialPos;
+        _cube4.transform.position = _cube4InitialPos;
+        _cube5.transform.position = _cube5InitialPos;
+        _cube6.transform.position = _cube6InitialPos;
+        _cube7.transform.position = _cube7InitialPos;
+        transform.position = _initialPos;
+        
+        _cube1.transform.parent = transform;
+        _cube2.transform.parent = transform;
+        _cube3.transform.parent = transform;
+        _cube4.transform.parent = transform;
+        _cube5.transform.parent = transform;
+        _cube6.transform.parent = transform;
+        _cube7.transform.parent = transform;
+        
+        CubesIsDown(4f);
+    }
+    
+    private void CubeAddToList()
+    {
+        _cubes.Add(_cube1);
+        _cubes.Add(_cube2);
+        _cubes.Add(_cube3);
+        _cubes.Add(_cube4);
+        _cubes.Add(_cube5);
+        _cubes.Add(_cube6);
+        _cubes.Add(_cube7);
     }
 }
