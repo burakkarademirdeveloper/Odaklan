@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &67073830
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2102,14 +2102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6732d1cb8c8244344b73803ab360f505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _redCode: 953F47
-  _greenCode: 439638
-  _blueCode: 4879E1
-  _yellowCode: B9B83A
-  _whiteCode: FFFFFF
-  _pinkCode: C14CCB
-  _orangeCode: BA8D35
-  _purpleCode: 702F77
   _redMaterial: {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
   _greenMaterial: {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
   _blueMaterial: {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
@@ -2122,6 +2114,14 @@ MonoBehaviour:
   _button2: {fileID: 67073829}
   _button3: {fileID: 1275076507}
   _button4: {fileID: 1115879695}
+  Red: {r: 0.5647059, g: 0.21960786, b: 0.24313727, a: 1}
+  Green: {r: 0.23529413, g: 0.5529412, b: 0.18039216, a: 1}
+  Blue: {r: 0.25882354, g: 0.4431373, b: 0.8431373, a: 1}
+  Yellow: {r: 0.70980394, g: 0.6901961, b: 0.19215688, a: 1}
+  White: {r: 1, g: 1, b: 1, a: 1}
+  Pink: {r: 0.74509805, g: 0.27450982, b: 0.76470596, a: 1}
+  Orange: {r: 0.70980394, g: 0.5254902, b: 0.1764706, a: 1}
+  Purple: {r: 0.43137258, g: 0.16862746, b: 0.44705886, a: 1}
 --- !u!4 &892122239
 Transform:
   m_ObjectHideFlags: 0
@@ -2448,6 +2448,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCubesController: {fileID: 922230755}
+  _gameController: {fileID: 892122238}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,7 +2678,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1115879696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2932,7 +2933,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1275076508
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3158,7 +3159,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1377842337
 RectTransform:
   m_ObjectHideFlags: 0
