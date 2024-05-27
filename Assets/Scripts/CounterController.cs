@@ -10,6 +10,7 @@ public class CounterController : MonoBehaviour
     private Vector3 _initialScale;
     
     [SerializeField] private MainCubesController _mainCubesController;
+    [SerializeField] private GameController _gameController;
     private void Start()
     {
         _initialScale = transform.localScale;
@@ -35,6 +36,7 @@ public class CounterController : MonoBehaviour
                     _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
                     {
                         _mainCubesController.CubesIsDown(5f);
+                        _gameController.ButtonActiveSlef(true);
                     });
                 });
             });

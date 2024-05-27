@@ -2110,6 +2110,18 @@ MonoBehaviour:
   _pinkCode: C14CCB
   _orangeCode: BA8D35
   _purpleCode: 702F77
+  _redMaterial: {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
+  _greenMaterial: {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
+  _blueMaterial: {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
+  _yellowMaterial: {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
+  _whiteMaterial: {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
+  _pinkMaterial: {fileID: 2100000, guid: 5f94f3f6cb94d354499ecbf977b21151, type: 2}
+  _orangeMaterial: {fileID: 2100000, guid: 8186dad103c006243b6e51c43b467a5f, type: 2}
+  _purpleMaterial: {fileID: 2100000, guid: 2b0d4489117176f43ac6f47aa6b02bcb, type: 2}
+  _button1: {fileID: 1377842336}
+  _button2: {fileID: 67073829}
+  _button3: {fileID: 1275076507}
+  _button4: {fileID: 1115879695}
 --- !u!4 &892122239
 Transform:
   m_ObjectHideFlags: 0
