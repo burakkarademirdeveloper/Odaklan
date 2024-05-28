@@ -35,7 +35,7 @@ public class CounterController : MonoBehaviour
                     _counterText.text = "0";
                     _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
                     {
-                        _gameController.ButtonActiveSlef(true);
+                        //_gameController.ButtonActiveSlef(true);
                         _mainCubesController.CubesIsDown(5f);
                     });
                 });

@@ -37,9 +37,26 @@ public class GameController : MonoBehaviour
     public Color Orange;
     public Color Purple;
     
+    private List<GameObject> _buttons = new List<GameObject>();
+    private List<Color> _colors = new List<Color>();
+    
     private void Start()
     {
         SetButtonImages();
+        
+        _buttons.Add(_button1);
+        _buttons.Add(_button2);
+        _buttons.Add(_button3);
+        _buttons.Add(_button4);
+        
+        _colors.Add(Red);
+        _colors.Add(Green);
+        _colors.Add(Blue);
+        _colors.Add(Yellow);
+        _colors.Add(White);
+        _colors.Add(Pink);
+        _colors.Add(Orange);
+        _colors.Add(Purple);
     }
     
     private void SetButtonImages()
@@ -50,11 +67,56 @@ public class GameController : MonoBehaviour
         _button4Image = _button4.GetComponent<Image>();
     }
     
-    public void ButtonActiveSlef(bool state)
+    public void ButtonsActive(bool state, string materialName)
     {
-        _button1.SetActive(state);
-        _button2.SetActive(state);
-        _button3.SetActive(state);
-        _button4.SetActive(state);
+        foreach (var btn in _buttons)
+        {
+            btn.SetActive(state);
+        }
+        
+        SetButtonColor(materialName);
+    }
+
+    private void SetButtonColor(string materialName)
+    {
+        var randomButton = UnityEngine.Random.Range(0, _buttons.Count);
+        
+        List<GameObject> buttons = new List<GameObject>(_buttons);
+        List<Color> materials = new List<Color>(_colors);
+        
+        var btn = buttons[randomButton];
+        var mat = GetColor(materialName);
+
+        btn.GetComponent<Image>().color = mat;
+        
+        buttons.Remove(btn);
+        materials.Remove(mat);
+        
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            var randomIndex = UnityEngine.Random.Range(0, materials.Count);
+            var button = buttons[i];
+            var material = materials[randomIndex];
+            
+            button.GetComponent<Image>().color = material;
+            
+            materials.RemoveAt(randomIndex);
+        }
+    }
+    
+    private Color GetColor(string materialName)
+    {
+        return materialName switch
+        {
+            "Red" => Red,
+            "Green" => Green,
+            "Blue" => Blue,
+            "Yellow" => Yellow,
+            "White" => White,
+            "Pink" => Pink,
+            "Orange" => Orange,
+            "Purple" => Purple,
+            _ => Color.white
+        };
     }
 }

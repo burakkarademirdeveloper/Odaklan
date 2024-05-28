@@ -28,6 +28,11 @@ public class MainCubesController : MonoBehaviour
     
     [SerializeField] private GameObject _mainGameCube;
 
+
+    [SerializeField] private List<Material> _materialList;
+    
+    [SerializeField] private GameController _gameController;
+    
     private void Start()
     {
         CubeAddToList();
@@ -48,6 +53,8 @@ public class MainCubesController : MonoBehaviour
 
     public void CubesIsDown(float time)
     {
+        StartCoroutine(ChangeMaterial(time / 2));
+        
         var targetPos = _mainGameCube.transform.position;
 
         transform.DOMove(targetPos, time).SetEase(Ease.Linear)
@@ -107,13 +114,7 @@ public class MainCubesController : MonoBehaviour
         _cube7.transform.position = _cube7InitialPos;
         transform.position = _initialPos;
         
-        _cube1.transform.parent = transform;
-        _cube2.transform.parent = transform;
-        _cube3.transform.parent = transform;
-        _cube4.transform.parent = transform;
-        _cube5.transform.parent = transform;
-        _cube6.transform.parent = transform;
-        _cube7.transform.parent = transform;
+        SetParent(gameObject.transform);
         
         CubesIsDown(4f);
     }
@@ -127,5 +128,68 @@ public class MainCubesController : MonoBehaviour
         _cubes.Add(_cube5);
         _cubes.Add(_cube6);
         _cubes.Add(_cube7);
+    }
+    
+    private void SetParent(Transform transform)
+    {
+        _cube1.transform.parent = transform;
+        _cube2.transform.parent = transform;
+        _cube3.transform.parent = transform;
+        _cube4.transform.parent = transform;
+        _cube5.transform.parent = transform;
+        _cube6.transform.parent = transform;
+        _cube7.transform.parent = transform;
+    }
+
+    public IEnumerator ChangeMaterial(float changeDuration)
+    {
+        Invoke(nameof(SetButtonActive), changeDuration + .1f);
+        
+        float elapsedTime = 0f;
+
+        while (elapsedTime < changeDuration)
+        {
+            List<Material> shuffledMaterials = new List<Material>(_materialList);
+            ShuffleList(shuffledMaterials);
+            
+            for (int i = 0; i < _cubes.Count; i++)
+            {
+                GameObject obj = _cubes[i];
+                if (obj != null)
+                {
+                    Renderer renderer = obj.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        renderer.material = shuffledMaterials[i];
+                    }
+                }
+            }
+            
+            yield return new WaitForSeconds(0.25f);
+            
+            elapsedTime += 0.25f;
+        }
+    }
+    
+    /// <summary>
+    /// Bu metot verilen listedeki elemanları karıştırır. Böylece her renk karıştırma aşamasında yan yana renkler gelmesinden ziyade tüm küpler materyal listesindeki renklerden rastgele bir renge sahip olur.
+    /// </summary>
+    /// <param name="list"></param>
+    /// <typeparam name="T"></typeparam>
+    private void ShuffleList<T>(List<T> list)
+    {
+        for (int i = 0; i < list.Count; i++)
+        {
+            int randomIndex = UnityEngine.Random.Range(0, list.Count); 
+            (list[i], list[randomIndex]) = (list[randomIndex], list[i]);
+        }
+    }
+    
+    private void SetButtonActive()
+    {
+        var originalMaterialName = _cube4.GetComponent<Renderer>().material.name;
+        var materialName = originalMaterialName.Substring(0, originalMaterialName.Length - 11);
+        
+        _gameController.ButtonsActive(true, materialName);
     }
 }
