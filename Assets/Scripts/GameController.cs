@@ -38,7 +38,7 @@ public class GameController : MonoBehaviour
     public Color Purple;
     
     private List<GameObject> _buttons = new List<GameObject>();
-    private List<Color> _colors = new List<Color>();
+    public List<Color> _colors = new List<Color>();
     
     private void Start()
     {
@@ -67,6 +67,13 @@ public class GameController : MonoBehaviour
         _button4Image = _button4.GetComponent<Image>();
     }
     
+    public void ButtonsActive(bool state)
+    {
+        foreach (var btn in _buttons)
+        {
+            btn.SetActive(state);
+        }
+    }
     public void ButtonsActive(bool state, string materialName)
     {
         foreach (var btn in _buttons)
@@ -82,7 +89,7 @@ public class GameController : MonoBehaviour
         var randomButton = UnityEngine.Random.Range(0, _buttons.Count);
         
         List<GameObject> buttons = new List<GameObject>(_buttons);
-        List<Color> materials = new List<Color>(_colors);
+        List<Color> colors = new List<Color>(_colors);
         
         var btn = buttons[randomButton];
         var mat = GetColor(materialName);
@@ -90,17 +97,17 @@ public class GameController : MonoBehaviour
         btn.GetComponent<Image>().color = mat;
         
         buttons.Remove(btn);
-        materials.Remove(mat);
+        colors.Remove(mat);
         
         for (int i = 0; i < buttons.Count; i++)
         {
-            var randomIndex = UnityEngine.Random.Range(0, materials.Count);
+            var randomIndex = UnityEngine.Random.Range(0, colors.Count);
             var button = buttons[i];
-            var material = materials[randomIndex];
+            var material = colors[randomIndex];
             
             button.GetComponent<Image>().color = material;
             
-            materials.RemoveAt(randomIndex);
+            colors.RemoveAt(randomIndex);
         }
     }
     
@@ -117,6 +124,22 @@ public class GameController : MonoBehaviour
             "Orange" => Orange,
             "Purple" => Purple,
             _ => Color.white
+        };
+    }
+    
+    private string GetMaterialName(Material material)
+    {
+        return material.name switch
+        {
+            "Red (Instance)" => "Red",
+            "Green (Instance)" => "Green",
+            "Blue (Instance)" => "Blue",
+            "Yellow (Instance)" => "Yellow",
+            "White (Instance)" => "White",
+            "Pink (Instance)" => "Pink",
+            "Orange (Instance)" => "Orange",
+            "Purple (Instance)" => "Purple",
+            _ => "White"
         };
     }
 }

@@ -24,6 +24,8 @@ public class MainCubesController : MonoBehaviour
     private Vector3 _cube6InitialPos;
     private Vector3 _cube7InitialPos;
     
+    public string MaterialName;
+    
     private List<GameObject> _cubes = new List<GameObject>();
     
     [SerializeField] private GameObject _mainGameCube;
@@ -61,6 +63,7 @@ public class MainCubesController : MonoBehaviour
             .OnComplete((() =>
             {
                 StartCoroutine(AddRbToCubes());
+                _gameController.ButtonsActive(false);
             }));
     }
 
@@ -189,6 +192,8 @@ public class MainCubesController : MonoBehaviour
     {
         var originalMaterialName = _cube4.GetComponent<Renderer>().material.name;
         var materialName = originalMaterialName.Substring(0, originalMaterialName.Length - 11);
+        
+        MaterialName = materialName;
         
         _gameController.ButtonsActive(true, materialName);
     }

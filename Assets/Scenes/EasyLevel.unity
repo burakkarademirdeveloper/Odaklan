@@ -342,6 +342,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67073830}
+  - component: {fileID: 67073834}
   - component: {fileID: 67073833}
   - component: {fileID: 67073832}
   - component: {fileID: 67073831}
@@ -415,7 +416,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 67073832}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 67073834}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &67073832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +467,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67073829}
   m_CullTransparentMesh: 1
+--- !u!114 &67073834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67073829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7d5bb930f330444a55a8abc39f6c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCube: {fileID: 1675361381}
+  IsTrueButton: 0
+  MaterialList:
+  - {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
+  - {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
+  - {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
+  - {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
+  - {fileID: 2100000, guid: 5f94f3f6cb94d354499ecbf977b21151, type: 2}
+  - {fileID: 2100000, guid: 8186dad103c006243b6e51c43b467a5f, type: 2}
+  - {fileID: 2100000, guid: 2b0d4489117176f43ac6f47aa6b02bcb, type: 2}
+  - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
+  _mainCubesController: {fileID: 922230755}
+  _gameController: {fileID: 892122238}
 --- !u!1 &130023385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,6 +2160,7 @@ MonoBehaviour:
   Pink: {r: 0.74509805, g: 0.27450982, b: 0.76470596, a: 1}
   Orange: {r: 0.70980394, g: 0.5254902, b: 0.1764706, a: 1}
   Purple: {r: 0.43137258, g: 0.16862746, b: 0.44705886, a: 1}
+  _colors: []
 --- !u!4 &892122239
 Transform:
   m_ObjectHideFlags: 0
@@ -2195,6 +2234,7 @@ MonoBehaviour:
   _cube5: {fileID: 627212545}
   _cube6: {fileID: 926595715}
   _cube7: {fileID: 305534608}
+  MaterialName: 
   _mainGameCube: {fileID: 1675361381}
   _materialList:
   - {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
@@ -2679,6 +2719,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1115879696}
+  - component: {fileID: 1115879700}
   - component: {fileID: 1115879699}
   - component: {fileID: 1115879698}
   - component: {fileID: 1115879697}
@@ -2752,7 +2793,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1115879698}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1115879700}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1115879698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2791,6 +2844,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1115879695}
   m_CullTransparentMesh: 1
+--- !u!114 &1115879700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1115879695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7d5bb930f330444a55a8abc39f6c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCube: {fileID: 1675361381}
+  IsTrueButton: 0
+  MaterialList:
+  - {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
+  - {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
+  - {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
+  - {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
+  - {fileID: 2100000, guid: 5f94f3f6cb94d354499ecbf977b21151, type: 2}
+  - {fileID: 2100000, guid: 8186dad103c006243b6e51c43b467a5f, type: 2}
+  - {fileID: 2100000, guid: 2b0d4489117176f43ac6f47aa6b02bcb, type: 2}
+  - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
+  _mainCubesController: {fileID: 922230755}
+  _gameController: {fileID: 892122238}
 --- !u!1 &1192635282
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +3012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1275076508}
+  - component: {fileID: 1275076512}
   - component: {fileID: 1275076511}
   - component: {fileID: 1275076510}
   - component: {fileID: 1275076509}
@@ -3007,7 +3086,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1275076510}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1275076512}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1275076510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3046,6 +3137,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1275076507}
   m_CullTransparentMesh: 1
+--- !u!114 &1275076512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275076507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7d5bb930f330444a55a8abc39f6c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCube: {fileID: 1675361381}
+  IsTrueButton: 0
+  MaterialList:
+  - {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
+  - {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
+  - {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
+  - {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
+  - {fileID: 2100000, guid: 5f94f3f6cb94d354499ecbf977b21151, type: 2}
+  - {fileID: 2100000, guid: 8186dad103c006243b6e51c43b467a5f, type: 2}
+  - {fileID: 2100000, guid: 2b0d4489117176f43ac6f47aa6b02bcb, type: 2}
+  - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
+  _mainCubesController: {fileID: 922230755}
+  _gameController: {fileID: 892122238}
 --- !u!1 &1373471258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3160,6 +3276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377842337}
+  - component: {fileID: 1377842341}
   - component: {fileID: 1377842340}
   - component: {fileID: 1377842339}
   - component: {fileID: 1377842338}
@@ -3233,7 +3350,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1377842339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1377842341}
+        m_TargetAssemblyTypeName: ButtonController, Assembly-CSharp
+        m_MethodName: ButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1377842339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3272,6 +3401,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377842336}
   m_CullTransparentMesh: 1
+--- !u!114 &1377842341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377842336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b7d5bb930f330444a55a8abc39f6c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mainCube: {fileID: 1675361381}
+  IsTrueButton: 0
+  MaterialList:
+  - {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
+  - {fileID: 2100000, guid: 22c66566b954f1c43ae38939e56e94b0, type: 2}
+  - {fileID: 2100000, guid: 3fdb8d131ab4fd9429d73f261ef74e2d, type: 2}
+  - {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
+  - {fileID: 2100000, guid: 5f94f3f6cb94d354499ecbf977b21151, type: 2}
+  - {fileID: 2100000, guid: 8186dad103c006243b6e51c43b467a5f, type: 2}
+  - {fileID: 2100000, guid: 2b0d4489117176f43ac6f47aa6b02bcb, type: 2}
+  - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
+  _mainCubesController: {fileID: 922230755}
+  _gameController: {fileID: 892122238}
 --- !u!1 &1434686546
 GameObject:
   m_ObjectHideFlags: 0
