@@ -11,6 +11,8 @@ public class CounterController : MonoBehaviour
     
     [SerializeField] private MainCubesController _mainCubesController;
     [SerializeField] private GameController _gameController;
+    
+    private int _repeatCount;
     private void Start()
     {
         _initialScale = transform.localScale;
@@ -20,11 +22,18 @@ public class CounterController : MonoBehaviour
 
     public void CounterAnim()
     {
+        var delay = 0;
+
+        if (_repeatCount == 0)
+            delay = 1;
+        else
+            delay = 0;
+        
         _counterText.text = "3";
         
         var targetScale = _initialScale * 1.5f;
         
-        _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
+        _counterText.transform.DOScale(targetScale, 0.5f).SetDelay(delay).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
         {
             _counterText.text = "2";
             _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
@@ -37,6 +46,8 @@ public class CounterController : MonoBehaviour
                 });
             });
         });
+        
+        _repeatCount++;
     }
 
     public void UpdateText()

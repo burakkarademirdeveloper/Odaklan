@@ -343,6 +343,7 @@ MonoBehaviour:
   _endXValue: -4
   _closeTime: 1
   _levelLoader: 1
+  _loadSceneController: {fileID: 0}
 --- !u!212 &467066115
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1387,6 +1388,7 @@ MonoBehaviour:
   _endXValue: 4
   _closeTime: 1
   _levelLoader: 0
+  _loadSceneController: {fileID: 0}
 --- !u!212 &1308079568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1575,6 +1577,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: EasyLevel
+  _doorAnimationController: {fileID: 467066114}
 --- !u!1 &1403200021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: HardLevel
+  _doorAnimationController: {fileID: 467066114}
 --- !u!1 &1529409250
 GameObject:
   m_ObjectHideFlags: 0

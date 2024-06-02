@@ -40,13 +40,9 @@ public class GameEndButtonController : MonoBehaviour
         if (!_clickable) return;
         
         if (_menuButton)
-        {
-            //kapılar kapancak. sonra ana menü yüklenecek.
-        }
+            _gameController.BackToMenu();
         else
-        {
             CloseAnimation();
-        }
     }
     
     public void OpenAnimation()

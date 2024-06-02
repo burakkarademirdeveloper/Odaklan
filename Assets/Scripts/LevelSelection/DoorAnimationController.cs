@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 namespace LevelSelection
 {
@@ -40,6 +41,16 @@ namespace LevelSelection
         
         private void CloseDoorAnimation()
         {
+            if (SceneManager.GetActiveScene().buildIndex != 0)
+            {
+                var vector3 = transform.position;
+                vector3.z = 58.610687f;
+                
+                vector3.y = _levelLoader ? 7.1f : 7.031573f;
+                
+                transform.position = vector3;
+            }
+            
             transform.DOMoveX(_endXValue, _closeTime).SetEase(Ease.OutSine)
                 .OnComplete((() =>
                 {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using LevelSelection;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -47,6 +48,7 @@ public class GameController : MonoBehaviour
     
     [SerializeField] private CameraController _cameraController;
     [SerializeField] private CounterController _counterController;
+    
     
     private void Start()
     {
@@ -173,5 +175,10 @@ public class GameController : MonoBehaviour
     {
         _counterController.ResetText();
         _cameraController.CameraMoveBack();
+    }
+    
+    public void BackToMenu()
+    {
+        DoorAnimationController.CloseDoor();
     }
 }
