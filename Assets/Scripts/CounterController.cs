@@ -33,13 +33,22 @@ public class CounterController : MonoBehaviour
                 _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
                 {
                     _counterText.text = "0";
-                    _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
-                    {
-                        //_gameController.ButtonActiveSlef(true);
-                        _mainCubesController.CubesIsDown(5f);
-                    });
+                    _mainCubesController.CubesIsDown(5f);
                 });
             });
         });
+    }
+
+    public void UpdateText()
+    {
+        var currentCount = int.Parse(_counterText.text);
+
+        currentCount++;
+        
+        _counterText.text = currentCount.ToString();
+
+        var targetScale = _initialScale * 1.5f;
+        
+        _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo);
     }
 }

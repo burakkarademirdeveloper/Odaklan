@@ -35,6 +35,10 @@ public class MainCubesController : MonoBehaviour
     
     [SerializeField] private GameController _gameController;
     
+    [SerializeField] private float _cubeDownTime;
+    
+    [SerializeField] private CounterController _counterController;
+    
     private void Start()
     {
         CubeAddToList();
@@ -55,6 +59,8 @@ public class MainCubesController : MonoBehaviour
 
     public void CubesIsDown(float time)
     {
+        _gameController.IsButtonCliclked = false;
+        
         StartCoroutine(ChangeMaterial(time / 2));
         
         var targetPos = _mainGameCube.transform.position;
@@ -70,6 +76,16 @@ public class MainCubesController : MonoBehaviour
     
     private IEnumerator AddRbToCubes()
     {
+        
+        var gameOver = _gameController.IsGameOver;
+        var buttonClicked = _gameController.IsButtonCliclked;
+
+        if (!gameOver && buttonClicked)
+        {
+            _counterController.UpdateText();
+        }
+        
+        
         int listCount = 0;
         
         foreach (GameObject obj in _cubes)
@@ -119,7 +135,21 @@ public class MainCubesController : MonoBehaviour
         
         SetParent(gameObject.transform);
         
-        CubesIsDown(4f);
+        var gameOver = _gameController.IsGameOver;
+        var buttonClicked = _gameController.IsButtonCliclked;
+
+        if (gameOver || !buttonClicked)
+        {
+            _gameController.GameOver();
+        }
+        else
+        {
+            if (_cubeDownTime >= 2f)
+            {
+                _cubeDownTime -= 0.2f;
+            }
+            CubesIsDown(_cubeDownTime);
+        }
     }
     
     private void CubeAddToList()

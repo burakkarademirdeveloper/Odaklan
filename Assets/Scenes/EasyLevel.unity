@@ -492,6 +492,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
   _mainCubesController: {fileID: 922230755}
   _gameController: {fileID: 892122238}
+  MaterialName: 
 --- !u!1 &130023385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2162,8 @@ MonoBehaviour:
   Orange: {r: 0.70980394, g: 0.5254902, b: 0.1764706, a: 1}
   Purple: {r: 0.43137258, g: 0.16862746, b: 0.44705886, a: 1}
   _colors: []
+  IsGameOver: 0
+  _cameraController: {fileID: 963194230}
 --- !u!4 &892122239
 Transform:
   m_ObjectHideFlags: 0
@@ -2245,6 +2248,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b799df604f9b1d4469528d851c0db76b, type: 2}
   - {fileID: 2100000, guid: 5e19959111eeae04d96a3dcbbbdcdf66, type: 2}
   _gameController: {fileID: 892122238}
+  _cubeDownTime: 4
+  _counterController: {fileID: 958598762}
 --- !u!1 &926595715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,6 +2516,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2605,6 +2611,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _changeInterval: 2
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082141415e3b461488e7b3d9b8efe4e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetPos: {x: 0, y: 1, z: 5}
+  _moveTime: 2
+  _forwardEase: 1
+  _backEase: 0
 --- !u!1 &1033045826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,6 +2891,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
   _mainCubesController: {fileID: 922230755}
   _gameController: {fileID: 892122238}
+  MaterialName: 
 --- !u!1 &1192635282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,6 +3185,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
   _mainCubesController: {fileID: 922230755}
   _gameController: {fileID: 892122238}
+  MaterialName: 
 --- !u!1 &1373471258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3426,6 +3450,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 11145a41d27bf7b49849428eee18a667, type: 2}
   _mainCubesController: {fileID: 922230755}
   _gameController: {fileID: 892122238}
+  MaterialName: 
 --- !u!1 &1434686546
 GameObject:
   m_ObjectHideFlags: 0

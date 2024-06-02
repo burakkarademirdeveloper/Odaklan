@@ -19,17 +19,17 @@ public class ButtonController : MonoBehaviour
     
     public void ButtonClick()
     {
-        
+        _gameController.IsButtonCliclked = true;
         GetColorName();
         _mainCube.GetComponent<Renderer>().material = GetMaterial(MaterialName);
         
         if (IsTrueButton)
         {
-            //kurulacak senaryoya göre bir şey yollayacaz.
+            _gameController.IsGameOver = false;
         }
         else
         {
-            //
+            _gameController.IsGameOver = true;
         }
         
         _gameController.ButtonsActive(false);

@@ -40,6 +40,11 @@ public class GameController : MonoBehaviour
     private List<GameObject> _buttons = new List<GameObject>();
     public List<Color> _colors = new List<Color>();
     
+    public bool IsGameOver;
+    public bool IsButtonCliclked;
+    
+    [SerializeField] private CameraController _cameraController;
+    
     private void Start()
     {
         SetButtonImages();
@@ -95,6 +100,7 @@ public class GameController : MonoBehaviour
         var mat = GetColor(materialName);
 
         btn.GetComponent<Image>().color = mat;
+        btn.GetComponent<ButtonController>().IsTrueButton = true;
         
         buttons.Remove(btn);
         colors.Remove(mat);
@@ -106,6 +112,7 @@ public class GameController : MonoBehaviour
             var material = colors[randomIndex];
             
             button.GetComponent<Image>().color = material;
+            button.GetComponent<ButtonController>().IsTrueButton = false;
             
             colors.RemoveAt(randomIndex);
         }
@@ -141,5 +148,12 @@ public class GameController : MonoBehaviour
             "Purple (Instance)" => "Purple",
             _ => "White"
         };
+    }
+    
+    public void GameOver()
+    {
+        _cameraController.CameraMoveForward();
+       
+        // kamera yakınlaşacak butonlar çıkacak.
     }
 }
