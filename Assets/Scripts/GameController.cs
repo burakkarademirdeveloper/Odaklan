@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LevelSelection;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -103,6 +104,7 @@ public class GameController : MonoBehaviour
         }
         
         SetButtonColor(materialName);
+        SetButtonText(materialName);
     }
 
     private void SetButtonColor(string materialName)
@@ -114,7 +116,7 @@ public class GameController : MonoBehaviour
         
         var btn = buttons[randomButton];
         var mat = GetColor(materialName);
-
+        
         btn.GetComponent<Image>().color = mat;
         btn.GetComponent<ButtonController>().IsTrueButton = true;
         
@@ -131,6 +133,47 @@ public class GameController : MonoBehaviour
             button.GetComponent<ButtonController>().IsTrueButton = false;
             
             colors.RemoveAt(randomIndex);
+        }
+    }
+
+    private void SetButtonText(string materialName)
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            List<string> colors = new List<string>
+            {
+                "Kırmızı", "Yeşil", "Mavi", "Sarı", "Beyaz", "Pembe", "Turuncu", "Mor"
+            };
+            
+            List<GameObject> buttons = new List<GameObject>(_buttons);
+            
+            var randomButton = UnityEngine.Random.Range(0, _buttons.Count);
+            var btnText = buttons[randomButton].transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+            var buttonTextValue = GetButtonText(materialName);
+
+            btnText.gameObject.SetActive(true);
+            btnText.text = buttonTextValue;
+            if (colors.Contains(buttonTextValue))
+            {
+                colors.Remove(buttonTextValue);
+                buttons.Remove(buttons[randomButton]);
+            }
+            
+            btnText.gameObject.transform.parent.GetComponent<ButtonController>().IsTrueButton = true;
+            
+            foreach (var btn in buttons)
+            {
+                var btnText2 = btn.transform.GetChild(0).GetComponent<TMPro.TextMeshProUGUI>();
+                var randomIndex = UnityEngine.Random.Range(0, colors.Count);
+                var buttonTextValue2 = colors[randomIndex];
+                
+                btn.gameObject.GetComponent<ButtonController>().IsTrueButton = false;
+                
+                btnText2.gameObject.SetActive(true);
+                btnText2.text = buttonTextValue2;
+                
+                colors.RemoveAt(randomIndex);
+            }
         }
     }
     
@@ -150,19 +193,19 @@ public class GameController : MonoBehaviour
         };
     }
     
-    private string GetMaterialName(Material material)
+    private string GetButtonText(string material)
     {
-        return material.name switch
+        return material switch
         {
-            "Red (Instance)" => "Red",
-            "Green (Instance)" => "Green",
-            "Blue (Instance)" => "Blue",
-            "Yellow (Instance)" => "Yellow",
-            "White (Instance)" => "White",
-            "Pink (Instance)" => "Pink",
-            "Orange (Instance)" => "Orange",
-            "Purple (Instance)" => "Purple",
-            _ => "White"
+            "Red" => "Kırmızı",
+            "Green" => "Yeşil",
+            "Blue" => "Mavi",
+            "Yellow" => "Sarı",
+            "White" => "Beyaz",
+            "Pink" => "Pembe",
+            "Orange" => "Turuncu",
+            "Purple" => "Mor",
+            _ => "Beyaz"
         };
     }
     

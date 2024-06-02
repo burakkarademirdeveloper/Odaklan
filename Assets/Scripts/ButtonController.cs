@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
@@ -21,7 +22,16 @@ public class ButtonController : MonoBehaviour
     {
         _gameController.IsButtonCliclked = true;
         GetColorName();
-        _mainCube.GetComponent<Renderer>().material = GetMaterial(MaterialName);
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            _mainCube.GetComponent<Renderer>().material = GetMaterial(MaterialName);
+        }
+        else
+        {
+            var buttonText = GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
+            _mainCube.GetComponent<Renderer>().material = GetMaterialWithButtonText(buttonText);
+        }
         
         if (IsTrueButton)
         {
@@ -95,6 +105,22 @@ public class ButtonController : MonoBehaviour
             "Orange" => MaterialList[5],
             "Purple" => MaterialList[6],
             "White" => MaterialList[7],
+            _ => MaterialList[7]
+        };
+    }
+    
+    private Material GetMaterialWithButtonText(string materialName)
+    {
+        return materialName switch
+        {
+            "Kırmızı" => MaterialList[0],
+            "Yeşil" => MaterialList[1],
+            "Mavi" => MaterialList[2],
+            "Sarı" => MaterialList[3],
+            "Pembe" => MaterialList[4],
+            "Turuncu" => MaterialList[5],
+            "Mor" => MaterialList[6],
+            "Beyaz" => MaterialList[7],
             _ => MaterialList[7]
         };
     }
