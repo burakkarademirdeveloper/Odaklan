@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,37 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _moveTime;
     public Ease _forwardEase;
     public Ease _backEase;
-    
+    [SerializeField] private CounterController _counterController;
+
+    [SerializeField] private GameEndButtonController _gameEndButtonController1;
+    [SerializeField] private GameEndButtonController _gameEndButtonController2;
+    private void Start()
+    {
+        _initialPos = transform.position;
+    }
+
     public void CameraMoveForward()
     {
-        transform.DOMove(_targetPos, _moveTime).SetEase(_forwardEase);
+        _gameEndButtonController1.OpenAnimation();
+        _gameEndButtonController2.OpenAnimation();
+        
+        transform.DOMove(_targetPos, _moveTime).SetEase(_forwardEase)
+            .OnComplete((() =>
+            {
+                // _gameEndButtonController1.OpenAnimation();
+                // _gameEndButtonController2.OpenAnimation();
+            }));
     }
     
     public void CameraMoveBack()
     {
-        transform.DOMove(_initialPos, _moveTime).SetEase(_backEase);
+        // _gameEndButtonController1.CloseAnimation();
+        // _gameEndButtonController2.CloseAnimation();
+        
+        transform.DOMove(_initialPos, _moveTime).SetEase(_backEase).SetDelay(1f)
+            .OnComplete(() =>
+            {
+                _counterController.CounterAnim();
+            });
     }
 }

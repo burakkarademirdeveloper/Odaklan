@@ -18,7 +18,7 @@ public class CounterController : MonoBehaviour
         CounterAnim();
     }
 
-    private void CounterAnim()
+    public void CounterAnim()
     {
         _counterText.text = "3";
         
@@ -50,5 +50,10 @@ public class CounterController : MonoBehaviour
         var targetScale = _initialScale * 1.5f;
         
         _counterText.transform.DOScale(targetScale, 0.5f).SetLoops(2, LoopType.Yoyo);
+    }
+    
+    public void ResetText()
+    {
+        _counterText.text = "0";
     }
 }

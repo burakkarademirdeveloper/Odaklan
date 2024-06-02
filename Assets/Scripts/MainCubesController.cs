@@ -38,11 +38,14 @@ public class MainCubesController : MonoBehaviour
     [SerializeField] private float _cubeDownTime;
     
     [SerializeField] private CounterController _counterController;
+
+    [SerializeField] private Material _whiteMaterial;
     
     private void Start()
     {
         CubeAddToList();
         SetCubeInitialPos();
+        Debug.Log(gameObject.name);
     }
     
     private void SetCubeInitialPos()
@@ -59,6 +62,8 @@ public class MainCubesController : MonoBehaviour
 
     public void CubesIsDown(float time)
     {
+        _mainGameCube.GetComponent<Renderer>().material = _whiteMaterial;
+        
         _gameController.IsButtonCliclked = false;
         
         StartCoroutine(ChangeMaterial(time / 2));
@@ -93,7 +98,10 @@ public class MainCubesController : MonoBehaviour
             listCount++;
             if (obj != null && listCount != 4)
             {
-                obj.AddComponent<Rigidbody>();
+                if (!obj.GetComponent<Rigidbody>())
+                {
+                    obj.AddComponent<Rigidbody>();
+                }
                 obj.transform.parent = null;
             }
 
@@ -107,7 +115,7 @@ public class MainCubesController : MonoBehaviour
                 Invoke(nameof(ResetCubesPos), 2f);
             }
             
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.10f);
         }
     }
     

@@ -39,11 +39,14 @@ public class GameController : MonoBehaviour
     
     private List<GameObject> _buttons = new List<GameObject>();
     public List<Color> _colors = new List<Color>();
+
+    public List<GameObject> _blackPanels;
     
     public bool IsGameOver;
     public bool IsButtonCliclked;
     
     [SerializeField] private CameraController _cameraController;
+    [SerializeField] private CounterController _counterController;
     
     private void Start()
     {
@@ -78,12 +81,23 @@ public class GameController : MonoBehaviour
         {
             btn.SetActive(state);
         }
+
+        foreach (var pnl in _blackPanels)
+        {
+            pnl.SetActive(state);
+        }
+        
     }
     public void ButtonsActive(bool state, string materialName)
     {
         foreach (var btn in _buttons)
         {
             btn.SetActive(state);
+        }
+
+        foreach (var pnl in _blackPanels)
+        {
+            pnl.SetActive(state);
         }
         
         SetButtonColor(materialName);
@@ -153,7 +167,11 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         _cameraController.CameraMoveForward();
-       
-        // kamera yakınlaşacak butonlar çıkacak.
+    }
+
+    public void RetryGame()
+    {
+        _counterController.ResetText();
+        _cameraController.CameraMoveBack();
     }
 }
