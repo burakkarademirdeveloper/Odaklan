@@ -343,7 +343,6 @@ MonoBehaviour:
   _endXValue: -4
   _closeTime: 1
   _levelLoader: 1
-  _loadSceneController: {fileID: 0}
 --- !u!212 &467066115
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1388,7 +1387,6 @@ MonoBehaviour:
   _endXValue: 4
   _closeTime: 1
   _levelLoader: 0
-  _loadSceneController: {fileID: 0}
 --- !u!212 &1308079568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1577,7 +1575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: EasyLevel
-  _doorAnimationController: {fileID: 467066114}
 --- !u!1 &1403200021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,7 +1696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: HardLevel
-  _doorAnimationController: {fileID: 467066114}
 --- !u!1 &1529409250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1996,6 +1992,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314dda7e12a219f4cbce790255e35822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _easyLevelBestScoreText: {fileID: 477967208666317195}
+  _hardLevelBestScoreText: {fileID: 853000937}
 --- !u!4 &1741976634
 Transform:
   m_ObjectHideFlags: 0

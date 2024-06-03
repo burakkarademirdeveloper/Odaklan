@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class CameraController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class CameraController : MonoBehaviour
 
     [SerializeField] private GameEndButtonController _gameEndButtonController1;
     [SerializeField] private GameEndButtonController _gameEndButtonController2;
+    
+    [SerializeField] private TMPro.TextMeshProUGUI _counterText;
     private void Start()
     {
         _initialPos = transform.position;
@@ -28,8 +31,26 @@ public class CameraController : MonoBehaviour
         transform.DOMove(_targetPos, _moveTime).SetEase(_forwardEase)
             .OnComplete((() =>
             {
-                // _gameEndButtonController1.OpenAnimation();
-                // _gameEndButtonController2.OpenAnimation();
+                var score = int.Parse(_counterText.text);
+
+                if (SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    var currentScore = PlayerPrefs.GetInt("EasyLevelBestScore");
+                    
+                    if (score > currentScore)
+                    {
+                        PlayerPrefs.SetInt("EasyLevelBestScore", score);
+                    }
+                }
+                else if (SceneManager.GetActiveScene().buildIndex == 2)
+                {
+                    var currentScore = PlayerPrefs.GetInt("HardLevelBestScore");
+                    
+                    if (score > currentScore)
+                    {
+                        PlayerPrefs.SetInt("HardLevelBestScore", score);
+                    }
+                }
             }));
     }
     

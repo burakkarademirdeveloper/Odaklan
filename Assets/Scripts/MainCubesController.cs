@@ -45,7 +45,6 @@ public class MainCubesController : MonoBehaviour
     {
         CubeAddToList();
         SetCubeInitialPos();
-        Debug.Log(gameObject.name);
     }
     
     private void SetCubeInitialPos()
