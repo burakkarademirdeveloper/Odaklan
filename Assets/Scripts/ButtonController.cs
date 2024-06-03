@@ -24,9 +24,7 @@ public class ButtonController : MonoBehaviour
         GetColorName();
 
         if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
             _mainCube.GetComponent<Renderer>().material = GetMaterial(MaterialName);
-        }
         else
         {
             var buttonText = GetComponentInChildren<TMPro.TextMeshProUGUI>().text;
@@ -34,13 +32,9 @@ public class ButtonController : MonoBehaviour
         }
         
         if (IsTrueButton)
-        {
             _gameController.IsGameOver = false;
-        }
         else
-        {
             _gameController.IsGameOver = true;
-        }
         
         _gameController.ButtonsActive(false);
     }

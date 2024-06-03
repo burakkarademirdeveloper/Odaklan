@@ -24,21 +24,13 @@ public class MainCubesController : MonoBehaviour
     private Vector3 _cube6InitialPos;
     private Vector3 _cube7InitialPos;
     
-    public string MaterialName;
-    
     private List<GameObject> _cubes = new List<GameObject>();
     
     [SerializeField] private GameObject _mainGameCube;
-
-
     [SerializeField] private List<Material> _materialList;
-    
     [SerializeField] private GameController _gameController;
-    
     [SerializeField] private float _cubeDownTime;
-    
     [SerializeField] private CounterController _counterController;
-
     [SerializeField] private Material _whiteMaterial;
     
     private void Start()
@@ -229,9 +221,6 @@ public class MainCubesController : MonoBehaviour
     {
         var originalMaterialName = _cube4.GetComponent<Renderer>().material.name;
         var materialName = originalMaterialName.Substring(0, originalMaterialName.Length - 11);
-        
-        MaterialName = materialName;
-        
         _gameController.ButtonsActive(true, materialName);
     }
 }

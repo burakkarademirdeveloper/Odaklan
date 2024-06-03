@@ -24,11 +24,6 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject _button3;
     [SerializeField] private GameObject _button4;
     
-    private Image _button1Image;
-    private Image _button2Image;
-    private Image _button3Image;
-    private Image _button4Image;
-
     [Header("Colors")]
     public Color Red;
     public Color Green;
@@ -53,8 +48,6 @@ public class GameController : MonoBehaviour
     
     private void Start()
     {
-        SetButtonImages();
-        
         _buttons.Add(_button1);
         _buttons.Add(_button2);
         _buttons.Add(_button3);
@@ -70,38 +63,22 @@ public class GameController : MonoBehaviour
         _colors.Add(Purple);
     }
     
-    private void SetButtonImages()
-    {
-        _button1Image = _button1.GetComponent<Image>();
-        _button2Image = _button2.GetComponent<Image>();
-        _button3Image = _button3.GetComponent<Image>();
-        _button4Image = _button4.GetComponent<Image>();
-    }
-    
     public void ButtonsActive(bool state)
     {
         foreach (var btn in _buttons)
-        {
             btn.SetActive(state);
-        }
 
         foreach (var pnl in _blackPanels)
-        {
             pnl.SetActive(state);
-        }
         
     }
     public void ButtonsActive(bool state, string materialName)
     {
         foreach (var btn in _buttons)
-        {
             btn.SetActive(state);
-        }
 
         foreach (var pnl in _blackPanels)
-        {
             pnl.SetActive(state);
-        }
         
         SetButtonColor(materialName);
         SetButtonText(materialName);

@@ -7,18 +7,9 @@ public class GameEndButtonController : MonoBehaviour
 {
     [SerializeField] private Vector3 _imitialPos;
     [SerializeField] private Vector3 _targetPos;
-    // [SerializeField] private Vector3 _menuTextInitialPos;
-    // [SerializeField] private Vector3 _retryTextInitialPos;
-    // [SerializeField] private Vector3 _menuTextTargetPos;
-    // [SerializeField] private Vector3 _retryTextTargetPos;
-    // [SerializeField] private float _menuTextTargetScale;
-    // [SerializeField] private float _retryTextTargetScale;
-    // [SerializeField] private float _menuTextInitialScale;
-    // [SerializeField] private float _retryTextInitialScale;
     
     [SerializeField] private float _forwardTime;
     [SerializeField] private float _backTime;
-    
     [SerializeField] private float _targetDistance;
     
     private bool _clickable;
@@ -28,7 +19,6 @@ public class GameEndButtonController : MonoBehaviour
     public Ease _backEase;
     
     [SerializeField] private GameController _gameController;
-    
     [SerializeField] private GameEndButtonController _menuButtonGameEndButtonController;
     private void Start()
     {
@@ -64,16 +54,12 @@ public class GameEndButtonController : MonoBehaviour
     public void CloseAnimation()
     {
         if (!_menuButton)
-        {
             _gameController.RetryGame();
-        }
         
         var targetPos = _imitialPos + new Vector3(_targetDistance, 0, 0);
 
         if (!_menuButton)
-        {
             _menuButtonGameEndButtonController.CloseAnimation();
-        }
         
         transform.DOMove(targetPos, _backTime).SetEase(_backEase)
             .OnComplete((() =>
@@ -82,7 +68,6 @@ public class GameEndButtonController : MonoBehaviour
                     .OnComplete((() =>
                     {
                         _clickable = false;
-                        // _gameController.RetryGame();
                     }));
             }));
     }

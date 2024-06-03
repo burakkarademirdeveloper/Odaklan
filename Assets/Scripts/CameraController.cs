@@ -56,9 +56,6 @@ public class CameraController : MonoBehaviour
     
     public void CameraMoveBack()
     {
-        // _gameEndButtonController1.CloseAnimation();
-        // _gameEndButtonController2.CloseAnimation();
-        
         transform.DOMove(_initialPos, _moveTime).SetEase(_backEase).SetDelay(1f)
             .OnComplete(() =>
             {
